@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <script>document.getElementsByTagName("html")[0].className += " js";</script>
+   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+
+<nav class="navbar"></nav>
+<section class="product-details">
+    <div class="image-slider">
+        <div class="product-images">
+            <img src="img/product image 1.png" class="active" alt="">
+            <img src="img/product image 2.png" alt="">
+            <img src="img/product image 3.png" alt="">
+            <img src="img/product image 4.png" alt="">
+        </div>
+    </div>
+    <div class="details">
+         <h2 class="product-brand">calvin klein</h2>
+         <p class="product-short-des">fine casusal clothing for men.</p>
+         <span class="product-price">₹990</span>
+         <span class="product-actual-price">₹2000</span>
+         <span class="product-discount">( 51% off )</span>
+ 
+         <p class="product-sub-heading">select size</p>
+ 
+         <input type="radio" name="size" value="s" checked hidden id="s-size">
+         <label for="s-size" class="size-radio-btn check">s</label>
+         <input type="radio" name="size" value="m" hidden id="m-size">
+         <label for="m-size" class="size-radio-btn">m</label>
+         <input type="radio" name="size" value="l" hidden id="l-size">
+         <label for="l-size" class="size-radio-btn">l</label>
+         <input type="radio" name="size" value="xl" hidden id="xl-size">
+         <label for="xl-size" class="size-radio-btn">xl</label>
+         <input type="radio" name="size" value="xxl" hidden id="xxl-size">
+         <label for="xxl-size" class="size-radio-btn">xxl</label>
+
+        
+
+         <button class="btn"onclick="showAlertW()">add to wishlist</button>
+         
+  
+                <button class="btn js-cd-add-to-cart" data-price="990">Add To Trial room</button>
+
+          
+          <div class="cd-cart cd-cart--empty js-cd-cart">
+              <a href="#0" class="cd-cart__trigger text-replace">
+                  
+                  <ul class="cd-cart__count"> <!-- cart items count -->
+                      <li>0</li>
+                      <li>0</li>
+                  </ul> <!-- .cd-cart__count -->
+              </a>
+          
+              <div class="cd-cart__content">
+                  <div class="cd-cart__layout">
+                      <header class="cd-cart__header">
+                          <h2>Trial Room</h2>
+                          <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
+                      </header>
+                      
+                      <div class="cd-cart__body">
+                          <ul>
+                              
+                          </ul>
+                      </div>
+          
+                      
+                          <a href="#0" class="cd-cart__checkout">
+                    <em>Checkout ₹<span></span>
+                      <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
+                      </svg>
+                    </em>
+                  </a>
+                      
+                  </div>
+              </div> 
+          </div> 
+
+
+         <button id="startBtn" onclick="openCam()"class="btn cart-btn">Try It !!</button>
+         <br/><br/>
+         <video id="videoCam"></video>
+         <script>
+            function openCam(){
+               let All_mediaDevices=navigator.mediaDevices
+               if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
+                  console.log("getUserMedia() not supported.");
+                  return;
+               }
+               All_mediaDevices.getUserMedia({
+                  video: true
+               })
+               .then(function(vidStream) {
+                  var video = document.getElementById('videoCam');
+                  if ("srcObject" in video) {
+                     video.srcObject = vidStream;
+                  } else {
+                     video.src = window.URL.createObjectURL(vidStream);
+                  }
+                  video.onloadedmetadata = function(e) {
+                     video.play();
+                  };
+               })
+               .catch(function(e) {
+                  console.log(e.name + ": " + e.message);
+               });
+            }
+         </script>
+      
+   
+
+     </div>
+ </section>
+
+ <section class="detail-des">
+    <h2 class="heading">About Calvin Klein</h2>
+    <p class="des">Calvin Klein is one of the best known designer names in the world, offering a modern and provocative design aesthetic. Under the PVH banner, Calvin Klein designs and markets women's and men's designer apparel, underwear, fragrance and accessories. Their classic, timeless yet modern styles represent pure and refined luxury. Each of the CK brands occupies a distinct identity that preserves the brand's prestige and image.</p>
+    <h2 class="heading"><br>Description</h2>
+    <p class="des"><br> the true sprit of style from Calvin Klein t-shirt. It's made from cotton blend with a crew neck and short sleeves. Wear yours with shorts on off-duty days.</p>
+</section> 
+
+<script>
+    function showAlert() {
+      var myText = "Successfully added to Trial room !!";
+      alert (myText);
+    }
+    </script>
+
+
+<script>
+   function showAlertW() {
+     var myText = "Successfully added to Wish list !!";
+     alert (myText);
+   }
+   </script>
+
+<footer></footer>
+
+<script src="nav.js"></script>
+<script src="home.js"></script>
+
+<script src="product.js"></script>
+<script src="util.js"></script> 
+<script src="main.js"></script> 
+
+
+
+    
+</body>
+</html>
